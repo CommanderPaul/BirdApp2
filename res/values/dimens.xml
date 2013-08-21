@@ -1,0 +1,14 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    
+    
+    <!-- Menu Page -->
+    <!-- sp is scale independent pixels - accounts for user device scale preference as well as screen size -->
+    <!-- dp is density independent pixels - based on screen size only -->
+    <dimen name="menu_text_size">35dp</dimen>
+    
+</resources>
