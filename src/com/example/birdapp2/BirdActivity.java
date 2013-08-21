@@ -14,7 +14,8 @@ public class BirdActivity extends Activity {
 
 	// Static fields here
 	
-	
+	// matches letters and spaces
+	public static String REGULAR_EXPRESSION_ONLY_LETTERS = "[a-zA-Z]*";
 	
 	
 	@Override

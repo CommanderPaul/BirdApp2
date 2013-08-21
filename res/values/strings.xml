@@ -7,6 +7,7 @@
     <string name="title_activity_bird">BirdActivity</string>
     <string name="title_activity_bird_splash">BirdSplashActivity</string>
     <string name="title_activity_menu">MenuActivity</string>
+    <string name="placeholder">placeholder</string>
 
     <!-- Splash Page Strings -->
     <string name="splash_intro">Welcome To The Bird App!</string>
@@ -20,5 +21,16 @@
     <string name="menu_bird_map">View Bird Map</string>
     <string name="menu_about">About</string>
     <string name="title_activity_bird_record">BirdRecordActivity</string>
+    
+    <!-- Bird Observation Page -->
+    <string name="todays_date">Today\'s Date:</string>
+    <string name="bird_name_label">Bird Name:</string>
+    <string name="bird_name_hint">(Enter Bird Name)</string>
+    <string name="bird_activity_label">Bird Activity:</string>
+    <string name="bird_acitivity_hint">(Enter Bird Activity)</string>
+    <string name="latitude_label">Latitude:</string>
+    <string name="longitude_label">Longitude:</string>
+    
+    
 
 </resources>
