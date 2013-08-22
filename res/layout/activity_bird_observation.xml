@@ -84,7 +84,7 @@
         >
 
     </EditText>
-
+    
     <!--  Latitude -->     
     <TextView
         android:id="@+id/latitude_label"
@@ -102,17 +102,39 @@
         android:id="@+id/TextViewLatitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/input_font_size"
-        android:hint="@string/bird_acitivity_hint"
-        android:textColorHint="@color/hint_color"
-        android:layout_alignLeft="@+id/bird_name_label"
-        android:layout_below="@+id/bird_activity_label"
-        
+        android:layout_alignBaseline="@+id/latitude_label"
+        android:layout_alignBottom="@+id/latitude_label"
+        android:layout_toRightOf="@+id/bird_name_label"
+        android:text="@string/placeholder"
+        android:textSize="@dimen/display_font_size" 
         
         />
 
-    
-    
-    
+    <!--  Longitude -->     
+    <TextView
+        android:id="@+id/longitude_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/latitude_label"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/longitude_label"
+        android:textSize="@dimen/display_font_size"
+        />
 
+    <TextView
+        android:id="@+id/TextViewLongitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/longitude_label"
+        android:layout_alignBottom="@+id/longitude_label"
+        android:layout_toRightOf="@+id/bird_name_label"
+        android:text="@string/placeholder"
+        android:textSize="@dimen/display_font_size" 
+        
+        />
+    
+    
+    
 </RelativeLayout>

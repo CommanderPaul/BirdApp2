@@ -24,11 +24,7 @@
         <activity
             android:name="com.example.birdapp2.BirdSplashActivity"
             android:label="@string/title_activity_bird_splash" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
         <activity
             android:name="com.example.birdapp2.MenuActivity"
@@ -37,6 +33,13 @@
         <activity
             android:name="com.example.birdapp2.BirdObservationActivity"
             android:label="@string/title_activity_bird_record" >
+            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            
         </activity>
     </application>
 
