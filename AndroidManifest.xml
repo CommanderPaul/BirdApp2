@@ -7,16 +7,20 @@
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="18" />
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    
+    <!-- not sure if this is correct -->
+	<uses-feature android:name="android.hardware.camera" />
+	<uses-feature android:name="android.hardware.camera.autofocus" />
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name="com.example.birdapp2.MainActivity"
-            android:label="@string/app_name" >
-        </activity>
         <activity
             android:name="com.example.birdapp2.BirdActivity"
             android:label="@string/title_activity_bird" >

@@ -1,7 +1,8 @@
 package com.example.birdapp2;
 
 import java.util.Date;
-
+import utilities.GPSReader;
+import android.location.Location;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.Menu;
@@ -12,7 +13,13 @@ import android.widget.TextView;
 
 public class BirdObservationActivity extends BirdActivity {
 
+	// Fields
 	
+	private Double latValue;
+	private TextView latField;
+	
+	private Double lonValue;
+	private TextView lonField;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,11 @@ public class BirdObservationActivity extends BirdActivity {
 		EditText birdActivity = (EditText)findViewById(R.id.editTextBirdActivity);
 		setListenerToEditText(birdActivity);
 		
+		// set initial gps coordiates
+		latField = (TextView) findViewById(R.id.TextViewLatitude);// this may need to go in onCreate()
+		lonField = (TextView) findViewById(R.id.TextViewLongitude);
+		populateLatAndLong();
+		
 		
 	}
 
@@ -45,7 +57,32 @@ public class BirdObservationActivity extends BirdActivity {
 	}
 
 	
-	// lost focus listener
+	@Override
+	protected void onResume(){
+		super.onResume();
+		populateLatAndLong();
+	}
+	
+	
+	/**
+	 * Uses GPSReader class to get lat and lon from gps
+	 * and auto-populate the appropriate text fields
+	 */
+	private void populateLatAndLong(){
+		
+		GPSReader gpsReader = new GPSReader(this);
+		
+		Location location = gpsReader.getLocation();
+		
+		if (location != null) {
+			gpsReader.updateGps();
+			// this shouldn't run unless there is a good location.
+			latField.setText(String.valueOf(location.getLatitude()));
+			lonField.setText(String.valueOf(location.getLongitude()));
+		}
+		
+	}
+	
 	/**
 	 * Set a focus change listener to an EditText
 	 * @param editText

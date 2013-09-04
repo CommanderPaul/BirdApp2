@@ -30,6 +30,9 @@
     <string name="bird_acitivity_hint">(Enter Bird Activity)</string>
     <string name="latitude_label">Latitude:</string>
     <string name="longitude_label">Longitude:</string>
+    <string name="service_not_available">Service Not Available</string>
+    <string name="bird_notes_label">Notes:</string>
+    <string name="bird_notes_hint">(Place Notes Here)</string>
     
     
 

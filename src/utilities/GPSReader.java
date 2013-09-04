@@ -7,6 +7,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.provider.Settings;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ public class GPSReader implements LocationListener{
 	private String provider;
 	private Context context;
 	private Location location;
+
 	
 	// Constructor
 	public GPSReader(Context context){
@@ -23,34 +25,30 @@ public class GPSReader implements LocationListener{
 		this.context = context;
 		
 		checkToSeeIfGPSIsOn();
-		
-		
-		
-		// get the location manager
+
 		locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
 		
 		Criteria criteria = new Criteria();
+		criteria.setAccuracy(Criteria.ACCURACY_FINE);// set the locationManager to use the gps
 		provider = locationManager.getBestProvider(criteria, false);
+
+		// returns null if provider is disabled.  Appears to return null if using emulator
 		location = locationManager.getLastKnownLocation(provider);
 		
-		
-		
-		
-		// initialize the location fields
-//		if (location != null){
-//			// can put a toast or some other feedback here
-//			onLocationChanged(location);
-//		} else {
-//			latitudeField.setText("Location not available");
-//			longitudeField.setText("Location not available");
-//		}
-		
-		
+		// have to request location updates or it won't work - won't take updates from ddms
+		locationManager.requestLocationUpdates(provider, 20000, 1, this);
 		
 	}
 	
+	public void updateGps(){
+		
+		locationManager.requestLocationUpdates(provider, 400, 1, this);
+		
+	}
 	
 	public Location getLocation() {
+		// location can be null if using an emulator
+		// or if gps is turned off or not available.
 		return location;
 	}
 
@@ -62,13 +60,8 @@ public class GPSReader implements LocationListener{
 
 	@Override
 	public void onLocationChanged(Location location) {
-		
-		float lat = (float) (location.getLatitude());
-		float lng = (float) (location.getLongitude());
-		
-//		latitudeField.setText(String.valueOf(lat));
-//		longitudeField.setText(String.valueOf(lng));
-		
+		// this fires all the time
+
 	}
 
 	@Override
@@ -90,13 +83,6 @@ public class GPSReader implements LocationListener{
 	}
 	
 	
-	// request update from gps
-	public void updateGPS(){
-		
-		// request an update based on parameters
-		locationManager.requestLocationUpdates(provider,  400,  1,  this);
-		
-	}
 	
 	/**
 	 * Checks to see if gps is on.  Opens GPS enable activity if not enabled.
@@ -107,10 +93,10 @@ public class GPSReader implements LocationListener{
 		
 		LocationManager service = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
 		boolean enabled = service.isProviderEnabled(LocationManager.GPS_PROVIDER);
-		
+
 		if (!enabled){
 			//TODO there should be a dialog here asking the user if they even want to
-			// turn on the gps
+
 			Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 			context.startActivity(intent);
 		}

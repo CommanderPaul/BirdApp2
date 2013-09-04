@@ -105,7 +105,7 @@
         android:layout_alignBaseline="@+id/latitude_label"
         android:layout_alignBottom="@+id/latitude_label"
         android:layout_toRightOf="@+id/bird_name_label"
-        android:text="@string/placeholder"
+        android:text="@string/service_not_available"
         android:textSize="@dimen/display_font_size" 
         
         />
@@ -130,11 +130,30 @@
         android:layout_alignBaseline="@+id/longitude_label"
         android:layout_alignBottom="@+id/longitude_label"
         android:layout_toRightOf="@+id/bird_name_label"
-        android:text="@string/placeholder"
+        android:text="@string/service_not_available"
         android:textSize="@dimen/display_font_size" 
         
         />
-    
-    
+
+    <!--  Notes -->
+    <TextView
+        android:id="@+id/notes_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/longitude_label"
+        android:layout_below="@+id/longitude_label"
+        android:layout_marginTop="30dp"
+        android:text="@string/bird_notes_label" />
+
+    <EditText
+        android:id="@+id/editTextNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notes_label"
+        android:layout_marginTop="8dp"
+        android:hint="@string/bird_notes_hint"
+        android:inputType="textMultiLine"
+        android:textColorHint="@color/hint_color"
+        android:textSize="@dimen/input_font_size" />
     
 </RelativeLayout>
